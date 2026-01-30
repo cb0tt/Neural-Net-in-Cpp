@@ -28,7 +28,7 @@ We sum these operations and store the result in a variable, often denoted as $z$
 The value $z$ is then passed through an activation function. In this model, we use the **Sigmoid** function.
 *   **Purpose:** Activation functions introduce non-linearity, allowing the model to learn and represent complex patterns that a simple linear equation cannot.
 
-For a deeper explanation of activation functions, check out this article:
+For a deeper explanation of activation functions I used, check this article:
 [Activation Functions in Neural Networks (GeeksforGeeks)](https://www.geeksforgeeks.org/machine-learning/activation-functions-neural-networks/)
 
 ### The Forward Pass
