@@ -1,6 +1,6 @@
 # XOR Neural Network in C++
 
-This project implements a small neural network in C++, from scratch. The network consists of 5 neurons (2 Input, 2 Hidden, 1 Output) and learns the **XOR gate logic** based on its truth table.
+This project implements a small neural network from scratch in C++. The network consists of 5 neurons (2 Input, 2 Hidden, 1 Output) and learns the **XOR gate logic** based on its truth table.
 
 ## Overview
 
@@ -10,7 +10,7 @@ Abstractly, a neural network is a computational model inspired by the human brai
 2. **Hidden Layer**
 3. **Output Layer**
 
-At each neuron, mathematical operations occur as data is passed through the network. The final result returned by the output layer is a probability, a number representing how confident the model is in its prediction.
+At each neuron, mathematical operations occur as data is passed through the network. The final result returned by the output layer is a probability, a float representing how confident the model is in its prediction.
 
 In this project, I explore the mathematics behind why neural networks can be so accurate.
 
@@ -24,11 +24,17 @@ The process begins with the linear input (often called the **logit**). This is c
 
 We sum these operations and store the result in a variable, often denoted as $z$.
 
+$$ z = w^T x + b $$
+
+**Note:** $w^T$ represents the transpose of the weight vector. Since I used C-style arrays (scalars), I implement the math by manually matching weights to inputs via array indexing. This achieves the same result as the transpose operation.
+
 ### Activation Function
 The value $z$ is then passed through an activation function. In this model, we use the **Sigmoid** function.
+
+$$ \sigma(z) = \frac{1}{1 + e^{-z}} $$
 *   **Purpose:** Activation functions introduce non-linearity, allowing the model to learn and represent complex patterns that a simple linear equation cannot.
 
-For a deeper explanation of activation functions, I used this article:
+For a deeper explanation of activation functions, check out this article:
 [Activation Functions in Neural Networks (GeeksforGeeks)](https://www.geeksforgeeks.org/machine-learning/activation-functions-neural-networks/)
 
 ### The Forward Pass
@@ -38,11 +44,16 @@ For a deeper explanation of activation functions, I used this article:
 ### Training: Loss and Backpropagation
 To make the network learn, we need to measure its performance and adjust it accordingly.
 
-1.  **Loss Function:** After a forward pass, we use a loss function to measure the error—how far the model's prediction was from the true label (the target).
+1.  **Loss Function:** After a forward pass, we use a loss function to measure the error, how far the model's prediction was from the true label (the target).
+
+$$ L = \frac{1}{2}(\hat{y} - y)^2 $$                                                                                                                                                                                                         
+
 2.  **Backpropagation:** We compute the **gradients** of the loss with respect to the weights and biases. This tells us the direction in which we need to adjust our parameters to reduce the error.
 3.  **Gradient Descent:** Using the calculated gradients, we update the weights and biases to minimize the cost function.
+
+$$ w_{new} = w_{old} - \alpha \cdot \frac{\partial L}{\partial w} $$
 
 ### Conclusion
 By repeating this process over many **epochs** (passes through the training data), the model iteratively improves its accuracy. In this specific implementation, I found that allowing the model more epochs significantly improved its performance on the XOR problem.
 
-Thanks for reading! :)
+Thanks for reading!
