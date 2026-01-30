@@ -1,6 +1,6 @@
 # XOR Neural Network in C++
 
-This project implements a small neural network from scratch in C++. The network consists of 5 neurons (2 Input, 2 Hidden, 1 Output) and learns the **XOR gate logic** based on its truth table.
+This project implements a small neural network in C++, from scratch. The network consists of 5 neurons (2 Input, 2 Hidden, 1 Output) and learns the **XOR gate logic** based on its truth table.
 
 ## Overview
 
@@ -10,7 +10,7 @@ Abstractly, a neural network is a computational model inspired by the human brai
 2. **Hidden Layer**
 3. **Output Layer**
 
-At each neuron, mathematical operations occur as data is passed through the network. The final result returned by the output layer is a probability—a number representing how confident the model is in its prediction.
+At each neuron, mathematical operations occur as data is passed through the network. The final result returned by the output layer is a probability, a number representing how confident the model is in its prediction.
 
 In this project, I explore the mathematics behind why neural networks can be so accurate.
 
